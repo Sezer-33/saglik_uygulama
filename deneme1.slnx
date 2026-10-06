@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
+  <Project Path="deneme1/deneme1.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52" Id="4ae5952a-5ae1-499c-85ae-44f37f4e839c">
+    <Build Project="false" />
+  </Project>
+</Solution>

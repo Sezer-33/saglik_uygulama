@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta charset="utf-8">
+    <title>Giriş yap - Dijital Sağlık Platformu</title>
+   <!__title kodu sayesinde tarayıcıdan açıldığında en üstte bu yazı yazar hocam__>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        <!__ body kısmı sayfanın arka plan rengini ve yazı tipini ayarlıyor hocam__ >
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        <!__ container kısmı sayfanın ortasında bir kutu oluşturuyor hocam__ >
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        <!__ input kısmı kullanıcı adı ve şifre kutularının boyutunu ve görünümünü ayarlıyor hocam__ >
+        .btn {
+            padding: 10px 20px;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        <!__ btn kısmı giriş yap butonunun boyutunu ve görünümünü ayarlıyor hocam__ >
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!__yukarıda ayarlanmış olan kutunun içerisideki herşey bu divin içerisinde olacak hocam__>
+        <h2>Giriş Yap</h2>
+        <!__ giriş formu başlama __>
+        </form method="POST" action="/giris">
+        <input type="text" name="kullanici_adi" placeholder="Kullanıcı Adı" required>
+        <input type="password" name="sifre" placeholder="Şifre" required>
+        <!__ type pasword olduğu için yazılan şifreyi gizliyor hocam__>
+        <button type="submit" class="btn">Giriş Yap</button>
+        </form>
+        <p><a href="/"> Ana Sayfa Dön<</a></p>
+        <!__üstteli kod sayesinde kullanıcılar giriş yapmaktan vazgeçerse ana sayfaya geri dönebileceği bir bağlantı oluşturdum hocam__>
+
+    </div>
+</body>
+</html>
