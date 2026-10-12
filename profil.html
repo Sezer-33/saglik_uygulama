@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Profilim</title>
+   <style>
+       body {
+           font-family: Arial, sans-serif;
+           margin: 0;
+           padding: 20px;
+           background-color: #808080;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       }
+
+       .profil-karti {
+            width: 300px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1)
+        }
+       .bilgi { 
+           margin: 15px 0;
+           font-size: 18px;
+           text-align: left;
+           border-bottom: 1px solid #eee;
+           padding-bottom: 10px;
+       }
+       .btn {
+           display: inline-block;
+           margin-top: 15px;
+           padding: 10px 20px;
+           background-color: #28a745;
+           color: white;
+           text-decoration: none;
+           border-radius: 4px;
+       }
+    </style>
+</head>
+<body>
+    <div class="profil-karti">
+        <h2>Profil Bilgileri</h2>
+        <div class="bilgi">
+            <p><strong>Kullanıcı Adı:</strong> {{ current_user.username }}</p>
+            <p><strong>E-posta:</strong> {{ current_user.email }}</p>
+            <p><strong>Rol:</strong> {{ current_user.role }}</p>
+        </div>
+        <a href="/" class="btn">Ana Sayfaya Dön</a>
+    </div>
+</body>
+</html>
