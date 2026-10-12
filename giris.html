@@ -11,14 +11,14 @@
             padding: 20px;
             background-color: #f5f5f5;
         }
-        <!__ body kısmı sayfanın arka plan rengini ve yazı tipini ayarlıyor hocam__ >
+        <!-- body kısmı sayfanın arka plan rengini ve yazı tipini ayarlıyor hocam-->
         .container {
             max-width: 400px;
             margin: 50px auto;
             background-color: #f5f5f5;
             padding: 20px;
         }
-        <!__ container kısmı sayfanın ortasında bir kutu oluşturuyor hocam__ >
+        <!--container kısmı sayfanın ortasında bir kutu oluşturuyor hocam-->
         input {
             width: 90%;
             padding: 10px;
@@ -26,7 +26,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        <!__ input kısmı kullanıcı adı ve şifre kutularının boyutunu ve görünümünü ayarlıyor hocam__ >
+        <!-- input kısmı kullanıcı adı ve şifre kutularının boyutunu ve görünümünü ayarlıyor hocam-->
         .btn {
             padding: 10px 20px;
             background-color: #667eea;
@@ -36,22 +36,22 @@
             cursor: pointer;
             width: 100%;
         }
-        <!__ btn kısmı giriş yap butonunun boyutunu ve görünümünü ayarlıyor hocam__ >
+             /*btn kısmı giriş yap butonunun boyutunu ve görünümünü ayarlıyor hocam */
     </style>
 </head>
 <body>
     <div class="container">
-        <!__yukarıda ayarlanmış olan kutunun içerisideki herşey bu divin içerisinde olacak hocam__>
+        <!--yukarıda ayarlanmış olan kutunun içerisideki herşey bu divin içerisinde olacak hocam-->
         <h2>Giriş Yap</h2>
-        <!__ giriş formu başlama __>
-        </form method="POST" action="/giris">
-        <input type="text" name="kullanici_adi" placeholder="Kullanıcı Adı" required>
-        <input type="password" name="sifre" placeholder="Şifre" required>
-        <!__ type pasword olduğu için yazılan şifreyi gizliyor hocam__>
+        <!-- giriş formu başlama -->
+        <form method="POST" action="/giris">
+        <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+        <input type="password" name="password" placeholder="Şifre" required>
+        <!-- type pasword olduğu için yazılan şifreyi gizliyor hocam -->
         <button type="submit" class="btn">Giriş Yap</button>
         </form>
-        <p><a href="/"> Ana Sayfa Dön<</a></p>
-        <!__üstteli kod sayesinde kullanıcılar giriş yapmaktan vazgeçerse ana sayfaya geri dönebileceği bir bağlantı oluşturdum hocam__>
+        <p><a href="/"> Ana Sayfa Dön</a></p>
+        <!-- üstteki kod sayesinde kullanıcılar giriş yapmaktan vazgeçerse ana sayfaya geri dönebileceği bir bağlantı oluşturdum hocam -->
 
     </div>
 </body>
