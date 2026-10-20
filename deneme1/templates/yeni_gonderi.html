@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Yeni Gönderi</title>
+    <style>
+        body {
+            font-family: Arial,sans-self;
+            background-color: wheat;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .form-kutusu {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        .btn{
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+        }
+        imput, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-kutusu">
+        <h2>Yeni Gönderi</h2>
+        <form action="/yeni_gonderi" method="POST">
+            <label><b>Başlık:</b></label>
+            <input type="text" placeholder="Gönderi Başlığı" name="baslik" required />
+
+            <label><b>İçerik:</b></label>
+            <textarea placeholder="Gönderi İçeriği" name="icerik" required style="height: 120px;"></textarea>
+
+            <button type="submit" class="btn" style="background-color: #007bff; width: 100%;">Gönder</button>
+        </form>
+        <div style="margin-top: 15px; text-align: center;"> 
+            <a href="/" style="background-color: #ff6a00;">Ana Sayfaya Dön</a>
+        </div>
+    </div>
+</body>
+</html>

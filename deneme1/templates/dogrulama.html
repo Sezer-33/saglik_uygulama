@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Posta Doğrulama</title>
+</head>
+<body>
+    <div style="max-width: 400px; margin: 50px auto; font-family: sans-serif; text-align: center;">
+        <h2>E-Posta Doğrulama</h2>
+        <p>Lütfen e-posta adresinize gönderilen 6 haneli doğrulama kodunu girin:</p>
+
+        {% if hata %}
+        <p style="color: red; font-weight: bold;">{{ hata }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <div style="margin-bottom: 15px;">
+                <input type="text"
+                       name="kod"
+                       placeholder="6 Haneli Kod"
+                       maxlength="6"
+                       required
+                       style="padding: 10px; font-size: 16px; text-align: center; width: 80%;">
+            </div>
+            <button type="submit" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Kodu Doğrula</button>
+        </form>
+    </div>
+</body>
+</html>

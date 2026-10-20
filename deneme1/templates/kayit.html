@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>kayıt ekranı</title>
+</head>
+<body>
+    <h1>kayıt ekranına hoşgeldiniz</h1>
+    <!-- hata mesajı varsa göster-->
+    {% if hata %}
+        <p style="color: red; font-weight: bold;">{{ hata }}</p>
+    {% endif %}
+
+    <form method="POST" action="/kayit">
+        <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+        <input type="email" name="email" placeholder="E-posta Adresi" required>
+        <input type="password" name="password" placeholder="Şifre" required>
+
+        <!-- rol seçim listesi-->
+        <select name="rol" required;>
+            <option value="hasta">Hasta / Vatandaş</option>
+            <option value="ogrenci">Öğrenci(edu.tr)</option>
+            <option value="saglikci"> Sağlık Çalışanı (Kurumsal / gov.tr</option>
+        </select>
+        <button type="submit">Kayıt Ol</button>
+    </form>
+    <br>
+    <a href="{{ url_for('giris') }}"> Zaten hesabın var mı? Giriş Yapın</a>
+</body>
+</html>

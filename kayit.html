@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>kayıt ekranı</title>
+</head>
+<body>
+    <h1>kayıt ekranına hoşgeldiniz</h1>
+    <form method="POST" action="/kayit">
+        <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+        <input type="email" name="email" placeholder="E-posta Adresi" required>
+        <input type="password" name="password" placeholder="Şifre" required>
+        <button type="submit">Kayıt Ol</button>
+    </form>
+    <br>
+    <a href="/giris"> Zaten hesabın var mı? Giriş Yapın</a>
+</body>
+</html>

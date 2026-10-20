@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--cep telefonunda a daha düzgün çalışması için ekledim.-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #667eea;
+            color: antiquewhite;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            font-weight: bold;
+            color: white !important;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+
+    <title>My A</title>
+</head>
+<body>
+    <header>
+        <h1>🏥 Dijital Sağlık Platformu</h1>
+    </header>
+
+    <div class="container" style="text-align: center;">
+        <h2>Hoşgeldiniz!</h2>
+        <p>Bu platformda sağlıkla ilgili içeriklere ulaşabilir, yeni gönderiler ekleyebilir ve profilinizi yönetebilirsiniz.</p>
+
+        <div style="margin-top: 20px;">
+            {% if current_user.is_authenticated %}
+            <p style="font-size: 18px;">hoşgeldiniz, <b>{{ current_user.username }}</b>!</p>
+            <a href="/profil" class="btn" style=" background-color: #28a745;">profilim</a>
+            <a href="/yeni_gonderi" class="btn" style=" background-color: #17a2b8;">+ Yeni Gönderi Ekle</a>
+            <a href="/cikis" class="btn" style=" background-color: #dc3545;">Çıkış Yap</a>
+            {% else %}
+            <a href="/giris" class="btn">Giriş Yap</a>
+            <a href="/kayit" class="btn">Kayıt Ol</a>
+            {% endif %}
+        </div>
+    </div>
+    <!--gönderilerin listelendiği alan-->
+    <!--gönderilerin listelendiği alan-->
+    <div style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; text-align: left;">
+        <h3 style="border-bottom: 2px solid #ddd; padding-bottom: 10px;">Paylaşımlar</h3>
+
+        {% for gonderi in gonderiler %}
+        <div style="background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <h4 style="margin: 0 0 5px 0; color: #225; font-size: 20px;">{{ gonderi.baslik }}</h4>
+            <p style="margin: 0 0 15px 0; color: #666; font-size: 16px;">paylaşan: <b>{{ gonderi.sahip.username if gonderi.sahip else 'Anonim' }}</b></p>
+            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: AccentColor;">{{ gonderi.icerik }}</p>
+
+            <!--yorumlar için alan-->
+            <div style="background-color: #f8f9fa; padding: 15px; margin-top: 15px; border: 1px solid #e9ecef;">
+                <!-- eski yorumlar burada listelenecek -->
+                <div style="margin-bottom: 10px;">
+                    {% for yorum in gonderi.yorumlar %}
+                    <div style="margin-bottom: 6px;">
+                        <b style="font-size: 14px; color: #007BFF;">{{ yorum.yazar.username if yorum.yazar else (yorum.sahip.username if yorum.sahip else 'Anonim') }}:</b>
+                        <span style="margin-left: 5px; font-size: 14px; color: #444;">{{ yorum.icerik }}</span>
+                    </div>
+                    {% else %}
+                    <p style="margin: 0; font-size: 14px; color: #555;">Henüz yorum yok.</p>
+                    {% endfor %}
+                </div> <!-- Yorum listesi (81. satırdaki div) kapanışı -->
+                <!-- yorum ekleme alanı -->
+                {% if current_user.is_authenticated %}
+                <form action="{{ url_for('yorum_ekle', gonderi_id=gonderi.id) }}" method="POST" style="margin-top: 10px; display: flex;">
+                    <input type="text" name="icerik" placeholder="Yorumunuzu yazın..." required style="flex-grow: 1; padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px 0 0 4px;">
+                    <button type="submit" class="btn btn-mavi" style="margin: 0; padding: 8px 12px; background-color: #007BFF; color: white; border: none; border-radius: 0 4px 4px 0;">Gönder</button>
+                </form>
+                {% else %}
+                <a href="/giris" style="color: #007BFF; text-decoration: none; font-size: 14px; font-weight: bold;">Yorum yapmak için giriş yapın</a>
+                {% endif %}
+            </div> <!-- Yorumlar alanı (79. satırdaki div) kapanışı -->
+        </div> <!-- Gönderi kartı (73. satırdaki div) kapanışı -->
+        {% else %}
+        <p style="text-align: center; color: #666;">Henüz paylaşım yok. İlk paylaşımı sen yap!</p>
+        {% endfor %}
+    </div> <!-- Ana kapsayıcı (69. satırdaki div) kapanışı -->
+</body>
+</html>
